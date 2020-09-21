@@ -14,7 +14,7 @@
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo">
-            <img src="images/banner.svg" alt="logo" style="height: 65px" />
+            <img src="../images/banner.svg" alt="logo" style="height: 65px" />
         </a>
         <ul class="right hide-on-med-and-down">
             <li>
@@ -34,11 +34,19 @@
 
 <div class="container">
     <div class="section">
-
-        <div>Product ID: <span th:text="${productId}"></span></div>
-        <div>Product: <span th:text="${product}"></span></div>
-
-
+        <div class="container" th:object="${product}">
+            <div class="row">
+                <div class="col l9 s12">
+                    <img th:src="${product.imageUrl}"/>
+                </div>
+                <div class="col l3 s12">
+                    <div><span th:text="${product.id}">Id</span></div>
+                    <div><span th:text="${product.name}">ProduktName</span></div>
+                    <div><span th:text="${product.type}">ProduktType</span></div>
+                    <div><span th:text="${product.price}">Price</span></div>
+                </div>
+            </div>
+        </div>
     </div>
     <br><br>
 </div>
@@ -47,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col l9 s12">
-                <img src="images/banner.svg" alt="logo" style="height: 120px" />
+                <img src="../images/banner.svg" alt="logo" style="height: 120px" />
                 <p class="grey-text text-lighten-4">See our GitHub orga <a class="orange-text text-lighten-3" href="https://github.com/bal-code-camp-micro-frontend">bal-code-camp-micro-frontend</a></p>
             </div>
             <div class="col l3 s12">

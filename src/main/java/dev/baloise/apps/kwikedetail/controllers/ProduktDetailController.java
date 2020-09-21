@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/d")
 public class ProduktDetailController {
 
     @RequestMapping("/product/{productId}")

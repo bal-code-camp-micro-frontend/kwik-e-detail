@@ -7,14 +7,14 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo">
-            <img src="../images/banner.svg" alt="logo" style="height: 65px" />
+            <img src="../../images/banner.svg" alt="logo" style="height: 65px" />
         </a>
         <ul class="right hide-on-med-and-down">
             <li>
@@ -32,22 +32,38 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="section">
-        <div class="container" th:object="${product}">
+<div class="container" th:object="${product}">
+    <div class="row">
+        <h3><span th:text="${product.name}">ProduktName</span></h3>
+    </div>
+    <div class="row">
+        <div class="col s12 m6 product_img">
+            <img th:src="${product.imageUrl}"class="img-responsive"/>
+        </div>
+        <div class="col s12 m6 product_content">
+            <h3 class="cost"><span class="glyphicon glyphicon-euro"></span> <span th:text="${product.price}">Price</span> <small class="pre-cost"><span class="glyphicon glyphicon-euro"></span> <span th:text="${product.price} - 1">Price</span></small></h3>
             <div class="row">
-                <div class="col l9 s12">
-                    <img th:src="${product.imageUrl}"/>
-                </div>
-                <div class="col l3 s12">
-                    <div><span th:text="${product.id}">Id</span></div>
-                    <div><span th:text="${product.name}">ProduktName</span></div>
-                    <div><span th:text="${product.type}">ProduktType</span></div>
-                    <div><span th:text="${product.price}">Price</span></div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <select class="form-control" name="select">
+                        <option value="" selected="">Color</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="gold">Gold</option>
+                        <option value="rose gold">Blue</option>
+                    </select>
                 </div>
             </div>
+            <div class="space-ten"></div>
+            <div class="btn-ground">
+                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
+            </div>
+            <p>Id: <span th:text="${product.id}">123</span> </p>
+            <p>Type: <span th:text="${product.type}">Toy</span> </p>
+            <p>Best product ever. Top a top</p>
         </div>
     </div>
+
     <br><br>
 </div>
 
@@ -55,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col l9 s12">
-                <img src="../images/banner.svg" alt="logo" style="height: 120px" />
+                <img src="../../images/banner.svg" alt="logo" style="height: 120px" />
                 <p class="grey-text text-lighten-4">See our GitHub orga <a class="orange-text text-lighten-3" href="https://github.com/bal-code-camp-micro-frontend">bal-code-camp-micro-frontend</a></p>
             </div>
             <div class="col l3 s12">
@@ -80,7 +96,7 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../js/materialize.js"></script>
-<script src="../js/init.js"></script>
+<script src="../../js/materialize.js"></script>
+<script src="../../js/init.js"></script>
 </body>
 </html>

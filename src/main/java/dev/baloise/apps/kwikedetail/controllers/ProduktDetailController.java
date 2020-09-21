@@ -18,9 +18,9 @@ import java.util.Optional;
 @Controller
 public class ProduktDetailController {
 
-    @RequestMapping("/{productId}")
+    @RequestMapping("/product/{productId}")
     public String getProduktDetail(Model model, @PathVariable("productId") String productId) throws IOException {
-        Optional<Product> product = getProduct(productId);
+        Optional<Product> product = getProductOptional(productId);
         if (!product.isPresent()) {
             throw new IllegalStateException("Not found");
         }
@@ -29,8 +29,17 @@ public class ProduktDetailController {
         return "product-detail";
     }
 
-    private Optional<Product> getProduct(String productId) throws IOException {
+    private Optional<Product> getProductOptional(String productId) throws IOException {
         return readData().stream().filter(p -> productId.equals(p.getId())).findFirst();
+    }
+
+    private Product getProduct(String productId) throws IOException {
+        for (Product p : readData()) {
+            if (p.getId().equals(productId)) {
+                return p;
+            }
+        }
+        return null;
     }
 
     private List<Product> readData() throws IOException {

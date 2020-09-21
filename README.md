@@ -1,3 +1,3 @@
-# kwik-e-list
+# kwik-e-detail
 
-<https://kwik-e-list.apps.baloise.dev>
+<https://kwik-e-detail.apps.baloise.dev>

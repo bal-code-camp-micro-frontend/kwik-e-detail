@@ -75,9 +75,7 @@
           </button>
         </div>
       </div>
-      <div class="row" th:object="${product}">
-        <div class="col s12" th:utext="${product.recommendationFragment}"></div>
-      </div>
+        <l-recommendations th:attr="productId=${product.id}"></l-recommendations>
     </div>
 
     <footer class="page-footer orange" margin-top="10">
@@ -174,5 +172,6 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/d/js/materialize.js"></script>
     <script src="/d/js/init.js"></script>
+    <script src="/l/js/recommendations.js"></script>
   </body>
 </html>

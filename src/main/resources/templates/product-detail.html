@@ -51,18 +51,19 @@
     </nav>
 
     <div class="container" th:object="${product}">
-      <div class="row">
-        <h3><span th:text="${product.name}">ProduktName</span></h3>
-      </div>
-      <div class="row">
+        <br><br>
+        <div class="row">
         <div class="col s12 m6">
           <img th:src="${product.imageUrl}" class="img-responsive" />
         </div>
         <div class="col s12 m6">
-          <h3 class="cost">
+        <div class="row">
+            <h3><span th:text="${product.name}">ProduktName</span></h3>
+        </div>
+          <h5 class="cost">
             <span th:text="${product.price}"></span>
             <small>CHF</small>
-          </h3>
+          </h5>
           <div class="space-ten"></div>
           <p>Id: <span th:text="${product.id}">123</span></p>
           <p>Type: <span th:text="${product.type}">Toy</span></p>
@@ -79,7 +80,7 @@
       </div>
     </div>
 
-    <footer class="page-footer orange">
+    <footer class="page-footer orange" margin-top="10">
       <div class="container">
         <div class="row">
           <div class="col l9 s12">

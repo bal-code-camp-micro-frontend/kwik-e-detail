@@ -12,10 +12,10 @@ public class Product {
     private String recommendationFragment;
 
     private String getRecommendationPath() {
-        return "/l/recommendations/"+this.id;
+        return "/l/recommendations-skeleton";
     }
 
-    public String getRecommendationFragment() {
+    public String getRecommendationSkeletonFragment() {
         String s = "<!--#include virtual=\""+getRecommendationPath()+"\" -->";
         return s;
     }

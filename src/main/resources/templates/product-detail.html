@@ -76,8 +76,7 @@
           <c-add-to-cart-button th:attr="product-id=${product.id}" filled="true"></c-add-to-cart-button>
         </div>
       </div>
-        <l-recommendations th:attr="productId=${product.id}">
-            <h1>hello</h1>
+        <l-recommendations th:attr="productId=${product.id}" th:utext="${product.recommendationSkeletonFragment}">
         </l-recommendations>
     </div>
 

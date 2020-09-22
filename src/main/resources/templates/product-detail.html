@@ -1,107 +1,177 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
     <title>KWIK-E-MARKT TEST</title>
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/d/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="/d/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="/d/css/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="/d/css/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+  </head>
+  <body>
+    <nav class="light-blue lighten-1" role="navigation">
+      <div class="nav-wrapper container">
         <a id="logo-container" href="/" class="brand-logo">
-            <img src="/d/images/banner.svg" alt="logo" style="height: 65px" />
+          <img src="/d/images/banner.svg" alt="logo" style="height: 65px" />
         </a>
         <ul class="right hide-on-med-and-down">
-            <li>
-                <a href="sass.html">
-                    <i class="material-icons left">shopping_cart</i>
-                    Shopping cart (0)
-                </a>
-            </li>
+          <li>
+            <a href="sass.html">
+              <i class="material-icons left">shopping_cart</i>
+              Shopping cart (0)
+            </a>
+          </li>
         </ul>
 
         <ul id="nav-mobile" class="sidenav">
-            <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Navbar Link</a></li>
         </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+      </div>
+    </nav>
 
-<div class="container" th:object="${product}">
-    <div class="row">
+    <div class="container" th:object="${product}">
+      <div class="row">
         <h3><span th:text="${product.name}">ProduktName</span></h3>
-    </div>
-    <div class="row">
-        <div class="col s12 m6 product_img">
-            <img th:src="${product.imageUrl}"class="img-responsive"/>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <img th:src="${product.imageUrl}" class="img-responsive" />
         </div>
-        <div class="col s12 m6 product_content">
-            <h3 class="cost"><span class="glyphicon glyphicon-euro"></span> <span th:text="${product.price}">Price</span> <small class="pre-cost"><span class="glyphicon glyphicon-euro"></span> <span th:text="${product.price} - 1">Price</span></small></h3>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <select class="form-control" name="select">
-                        <option value="" selected="">Color</option>
-                        <option value="black">Black</option>
-                        <option value="white">White</option>
-                        <option value="gold">Gold</option>
-                        <option value="rose gold">Blue</option>
-                    </select>
-                </div>
-            </div>
-            <div class="space-ten"></div>
-            <div class="btn-ground">
-                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
-                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
-            </div>
-            <p>Id: <span th:text="${product.id}">123</span> </p>
-            <p>Type: <span th:text="${product.type}">Toy</span> </p>
-            <p>Best product ever. Top a top</p>
+        <div class="col s12 m6">
+          <h3 class="cost">
+            <span th:text="${product.price}"></span>
+            <small>CHF</small>
+          </h3>
+          <div class="space-ten"></div>
+          <p>Id: <span th:text="${product.id}">123</span></p>
+          <p>Type: <span th:text="${product.type}">Toy</span></p>
+          <p>Best product ever. Top a top</p>
+          <div class="space-ten"></div>
+          <button type="button" class="waves-effect waves-light btn orange">
+            <i class="material-icons left">add_shopping_cart</i>
+            Add To Cart
+          </button>
         </div>
-    </div>
-    <div class="row" th:object="${product}">
-        <div class="col s12" th:utext="${product.recommendationFragment}">
+      </div>
+      <div class="row" th:object="${product}">
+        <div class="col s12" th:utext="${product.recommendationFragment}"></div>
+      </div>
     </div>
 
-    </div>
-    <br><br>
-</div>
-
-<footer class="page-footer orange">
-    <div class="container">
+    <footer class="page-footer orange">
+      <div class="container">
         <div class="row">
-            <div class="col l9 s12">
-                <img src="/d/images/banner.svg" alt="logo" style="height: 120px" />
-                <p class="grey-text text-lighten-4">See our GitHub orga <a class="orange-text text-lighten-3" href="https://github.com/bal-code-camp-micro-frontend">bal-code-camp-micro-frontend</a></p>
-            </div>
-            <div class="col l3 s12">
-                <h5 class="white-text">Team Repositories</h5>
-                <ul>
-                    <li><a class="white-text" href="https://github.com/bal-code-camp-micro-frontend/kwik-e-proxy">kwik-e-proxy</a></li>
-                    <li><a class="white-text" href="https://github.com/bal-code-camp-micro-frontend/kwik-e-list">kwik-e-list</a></li>
-                    <li><a class="white-text" href="https://github.com/bal-code-camp-micro-frontend/kwik-e-detail">kwik-e-detail</a></li>
-                    <li><a class="white-text" href="https://github.com/bal-code-camp-micro-frontend/kwik-e-checkout">kwik-e-checkout</a></li>
-                    <li><a class="white-text" href="https://github.com/bal-code-camp-micro-frontend/okd4-deployment">okd4-deployment</a></li>
-                </ul>
-            </div>
+          <div class="col l9 s12">
+            <img src="/d/images/banner.svg" alt="logo" style="height: 120px" />
+            <p class="grey-text text-lighten-4">
+              See our GitHub orga
+              <a
+                class="orange-text text-lighten-3"
+                href="https://github.com/bal-code-camp-micro-frontend"
+                >bal-code-camp-micro-frontend</a
+              >
+            </p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Team Repositories</h5>
+            <ul>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-proxy"
+                  >kwik-e-proxy</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-list"
+                  >kwik-e-list</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-detail"
+                  >kwik-e-detail</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-checkout"
+                  >kwik-e-checkout</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://github.com/bal-code-camp-micro-frontend/okd4-deployment"
+                  >okd4-deployment</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
-    <div class="footer-copyright">
+      </div>
+      <div class="footer-copyright">
         <div class="container">
-            Made by <a class="orange-text text-lighten-3" href="https://github.com/kullmanp">Peter</a>, <a class="orange-text text-lighten-3" href="https://github.com/hirsch88">Gery</a>, <a class="orange-text text-lighten-3" href="https://github.com/mateuszbaloise">Mateusz</a> &amp; <a class="orange-text text-lighten-3" href="https://github.com/christiansiegel">Christian</a> with ❤️
-            <br />
-            Product images from <a class="orange-text text-lighten-3" href="https://simpsonswiki.com/">simpsonswiki.com</a>
+          Made by
+          <a
+            class="orange-text text-lighten-3"
+            href="https://github.com/kullmanp"
+            >Peter</a
+          >,
+          <a
+            class="orange-text text-lighten-3"
+            href="https://github.com/hirsch88"
+            >Gery</a
+          >,
+          <a
+            class="orange-text text-lighten-3"
+            href="https://github.com/mateuszbaloise"
+            >Mateusz</a
+          >
+          &amp;
+          <a
+            class="orange-text text-lighten-3"
+            href="https://github.com/christiansiegel"
+            >Christian</a
+          >
+          with ❤️
+          <br />
+          Product images from
+          <a class="orange-text text-lighten-3" href="https://simpsonswiki.com/"
+            >simpsonswiki.com</a
+          >
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="/d/js/materialize.js"></script>
-<script src="/d/js/init.js"></script>
-</body>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/d/js/materialize.js"></script>
+    <script src="/d/js/init.js"></script>
+  </body>
 </html>

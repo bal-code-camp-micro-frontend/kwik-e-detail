@@ -60,10 +60,18 @@
         <div class="row">
             <h3><span th:text="${product.name}">ProduktName</span></h3>
         </div>
-          <h5 class="cost">
-            <span th:text="${product.price}"></span>
-            <small>CHF</small>
-          </h5>
+
+          <div class="row">
+            <div class="col">
+              <p>Preis:</p>
+            </div>
+            <div class="col s12 m6">
+              <h5 class="cost">
+                <span th:text="${product.price}"></span>
+                <small>CHF</small>
+              </h5>
+            </div>
+          </div>
           <div class="space-ten"></div>
           <p>Id: <span th:text="${product.id}">123</span></p>
           <p>Type: <span th:text="${product.type}">Toy</span></p>

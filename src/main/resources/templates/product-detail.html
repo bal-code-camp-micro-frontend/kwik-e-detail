@@ -32,14 +32,7 @@
         <a id="logo-container" href="/" class="brand-logo">
           <img src="/d/images/banner.svg" alt="logo" style="height: 65px" />
         </a>
-        <ul class="right hide-on-med-and-down">
-          <li>
-            <a href="sass.html">
-              <i class="material-icons left">shopping_cart</i>
-              Shopping cart (0)
-            </a>
-          </li>
-        </ul>
+        <c-shopping-cart th:attr="productId=${product.id}"></c-shopping-cart>
 
         <ul id="nav-mobile" class="sidenav">
           <li><a href="#">Navbar Link</a></li>
@@ -77,10 +70,7 @@
           <p>Type: <span th:text="${product.type}">Toy</span></p>
           <p>Best product ever. Top a top</p>
           <div class="space-ten"></div>
-          <button type="button" class="waves-effect waves-light btn orange">
-            <i class="material-icons left">add_shopping_cart</i>
-            Add To Cart
-          </button>
+          <l-add-to-cart-button th:attr="productId=${product.id}"></l-add-to-cart-button>
         </div>
       </div>
         <l-recommendations th:attr="productId=${product.id}"></l-recommendations>
@@ -181,5 +171,6 @@
     <script src="/d/js/materialize.js"></script>
     <script src="/d/js/init.js"></script>
     <script src="/l/js/recommendations.js"></script>
+    <script src="/c/js/add-to-cart-button.js"></script>
   </body>
 </html>

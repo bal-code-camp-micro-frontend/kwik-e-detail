@@ -73,7 +73,7 @@
           <p>Type: <span th:text="${product.type}">Toy</span></p>
           <p>Best product ever. Top a top</p>
           <div class="space-ten"></div>
-          <c-add-to-cart-button th:attr="productId=${product.id}"></c-add-to-cart-button>
+          <c-add-to-cart-button th:attr="product-id=${product.id}"></c-add-to-cart-button>
         </div>
       </div>
         <l-recommendations th:attr="productId=${product.id}"></l-recommendations>

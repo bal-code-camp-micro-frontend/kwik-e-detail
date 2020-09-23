@@ -1,16 +1,25 @@
-const detailPagesTemplate = document.createElement('template');
-detailPagesTemplate.innerHTML = `
-<h1>hello detail </h1>
-<a href="/">list</a>
-<a href="/checkout">checkout</a>
-`;
-
-class DetailPages extends HTMLElement {
-
+class DPages extends HTMLElement {
     connectedCallback() {
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(detailPagesTemplate.content.cloneNode(true));
+        this.render(window.location);
+        this.unlisten = window.appHistory.listen(location =>
+            this.render(location)
+        );
+
     }
+
+    disconnectedCallback() {
+        this.unlisten();
+    }
+
+    render(location) {
+        const match = location.pathname.match("/product/(.*)");
+        if (match && match[1]) {
+            fetch("/d/product/" + match[1])
+                .then(resp => resp.text())
+                .then(text => this.innerHTML = text);
+        }
+    }
+
 }
 
-customElements.define('d-pages', DetailPages);
+window.customElements.define("d-pages", DPages);

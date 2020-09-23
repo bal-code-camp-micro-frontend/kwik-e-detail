@@ -1,181 +1,160 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1.0"
-    />
-    <title>KWIK-E-MARKT TEST</title>
+<link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+/>
+<link
+        href="/d/css/materialize.css"
+        type="text/css"
+        rel="stylesheet"
+        media="screen,projection"
+/>
+<link
+        href="/d/css/style.css"
+        type="text/css"
+        rel="stylesheet"
+        media="screen,projection"
+/>
 
-    <!-- CSS  -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="/d/css/materialize.css"
-      type="text/css"
-      rel="stylesheet"
-      media="screen,projection"
-    />
-    <link
-      href="/d/css/style.css"
-      type="text/css"
-      rel="stylesheet"
-      media="screen,projection"
-    />
-  </head>
-  <body>
 
-    <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container">
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
         <a id="logo-container" href="/" class="brand-logo">
-          <img src="/d/images/banner.svg" alt="logo" style="height: 65px" />
+            <img src="/d/images/banner.svg" alt="logo" style="height: 65px"/>
         </a>
         <ul class="right hide-on-med-and-down">
-          <li>
-            <c-shopping-cart id="{{this.id}}"></c-shopping-cart>
-          </li>
+            <li>
+                <c-shopping-cart id="{{this.id}}"></c-shopping-cart>
+            </li>
         </ul>
         <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
+            <li><a href="#">Navbar Link</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-
-    <div class="container" th:object="${product}">
-        <br><br>
-        <div class="row">
-        <div class="col s12 m6">
-          <img th:src="${product.imageUrl}" class="img-responsive" />
-        </div>
-        <div class="col s12 m6">
-        <div class="row">
-            <h3><span th:text="${product.name}">ProduktName</span></h3>
-        </div>
-
-          <div class="row">
-            <div class="col">
-              <p>Preis:</p>
-            </div>
-            <div class="col s12 m6">
-              <h5 class="cost">
-                <span th:text="${product.price}"></span>
-                <small>CHF</small>
-              </h5>
-            </div>
-          </div>
-          <div class="space-ten"></div>
-          <p>Id: <span th:text="${product.id}">123</span></p>
-          <p>Type: <span th:text="${product.type}">Toy</span></p>
-          <p>Best product ever. Top a top</p>
-          <div class="space-ten"></div>
-          <c-add-to-cart-button th:attr="product-id=${product.id}" filled="true"></c-add-to-cart-button>
-        </div>
-      </div>
-        <l-recommendations th:attr="productId=${product.id}" th:utext="${product.recommendationSkeletonFragment}">
-        </l-recommendations>
+        ><i class="material-icons">menu</i></a>
     </div>
+</nav>
 
-    <footer class="page-footer orange" margin-top="10">
-      <div class="container">
+<div class="container" th:object="${product}">
+    <br><br>
+    <div class="row">
+        <div class="col s12 m6">
+            <img th:src="${product.imageUrl}" class="img-responsive"/>
+        </div>
+        <div class="col s12 m6">
+            <div class="row">
+                <h3><span th:text="${product.name}">ProduktName</span></h3>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>Preis:</p>
+                </div>
+                <div class="col s12 m6">
+                    <h5 class="cost">
+                        <span th:text="${product.price}"></span>
+                        <small>CHF</small>
+                    </h5>
+                </div>
+            </div>
+            <div class="space-ten"></div>
+            <p>Id: <span th:text="${product.id}">123</span></p>
+            <p>Type: <span th:text="${product.type}">Toy</span></p>
+            <p>Best product ever. Top a top</p>
+            <div class="space-ten"></div>
+            <c-add-to-cart-button th:attr="product-id=${product.id}" filled="true"></c-add-to-cart-button>
+        </div>
+    </div>
+    <l-recommendations th:attr="productId=${product.id}" th:utext="${product.recommendationSkeletonFragment}">
+    </l-recommendations>
+</div>
+
+<footer class="page-footer orange" margin-top="10">
+    <div class="container">
         <div class="row">
-          <div class="col l9 s12">
-            <img src="/d/images/banner.svg" alt="logo" style="height: 120px" />
-            <p class="grey-text text-lighten-4">
-              See our GitHub orga
-              <a
-                class="orange-text text-lighten-3"
-                href="https://github.com/bal-code-camp-micro-frontend"
-                >bal-code-camp-micro-frontend</a
-              >
-            </p>
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Team Repositories</h5>
-            <ul>
-              <li>
-                <a
-                  class="white-text"
-                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-proxy"
-                  >kwik-e-proxy</a
-                >
-              </li>
-              <li>
-                <a
-                  class="white-text"
-                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-list"
-                  >kwik-e-list</a
-                >
-              </li>
-              <li>
-                <a
-                  class="white-text"
-                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-detail"
-                  >kwik-e-detail</a
-                >
-              </li>
-              <li>
-                <a
-                  class="white-text"
-                  href="https://github.com/bal-code-camp-micro-frontend/kwik-e-checkout"
-                  >kwik-e-checkout</a
-                >
-              </li>
-              <li>
-                <a
-                  class="white-text"
-                  href="https://github.com/bal-code-camp-micro-frontend/okd4-deployment"
-                  >okd4-deployment</a
-                >
-              </li>
-            </ul>
-          </div>
+            <div class="col l9 s12">
+                <img src="/d/images/banner.svg" alt="logo" style="height: 120px"/>
+                <p class="grey-text text-lighten-4">
+                    See our GitHub orga
+                    <a
+                            class="orange-text text-lighten-3"
+                            href="https://github.com/bal-code-camp-micro-frontend"
+                    >bal-code-camp-micro-frontend</a
+                    >
+                </p>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Team Repositories</h5>
+                <ul>
+                    <li>
+                        <a
+                                class="white-text"
+                                href="https://github.com/bal-code-camp-micro-frontend/kwik-e-proxy"
+                        >kwik-e-proxy</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="white-text"
+                                href="https://github.com/bal-code-camp-micro-frontend/kwik-e-list"
+                        >kwik-e-list</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="white-text"
+                                href="https://github.com/bal-code-camp-micro-frontend/kwik-e-detail"
+                        >kwik-e-detail</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="white-text"
+                                href="https://github.com/bal-code-camp-micro-frontend/kwik-e-checkout"
+                        >kwik-e-checkout</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="white-text"
+                                href="https://github.com/bal-code-camp-micro-frontend/okd4-deployment"
+                        >okd4-deployment</a
+                        >
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="footer-copyright">
+    </div>
+    <div class="footer-copyright">
         <div class="container">
-          Made by
-          <a
-            class="orange-text text-lighten-3"
-            href="https://github.com/kullmanp"
+            Made by
+            <a
+                    class="orange-text text-lighten-3"
+                    href="https://github.com/kullmanp"
             >Peter</a
-          >,
-          <a
-            class="orange-text text-lighten-3"
-            href="https://github.com/hirsch88"
+            >,
+            <a
+                    class="orange-text text-lighten-3"
+                    href="https://github.com/hirsch88"
             >Gery</a
-          >,
-          <a
-            class="orange-text text-lighten-3"
-            href="https://github.com/mateuszbaloise"
+            >,
+            <a
+                    class="orange-text text-lighten-3"
+                    href="https://github.com/mateuszbaloise"
             >Mateusz</a
-          >
-          &amp;
-          <a
-            class="orange-text text-lighten-3"
-            href="https://github.com/christiansiegel"
+            >
+            &amp;
+            <a
+                    class="orange-text text-lighten-3"
+                    href="https://github.com/christiansiegel"
             >Christian</a
-          >
-          with ❤️
-          <br />
-          Product images from
-          <a class="orange-text text-lighten-3" href="https://simpsonswiki.com/"
+            >
+            with ❤️
+            <br/>
+            Product images from
+            <a class="orange-text text-lighten-3" href="https://simpsonswiki.com/"
             >simpsonswiki.com</a
-          >
+            >
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="/d/js/materialize.js"></script>
-    <script src="/d/js/init.js"></script>
-    <script src="/l/js/recommendations.js"></script>
-    <script src="/c/js/add-to-cart-button.js"></script>
-    <script src="/c/js/shopping-cart.js"></script>
-  </body>
-</html>

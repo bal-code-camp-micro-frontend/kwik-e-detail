@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches:    
+    branches:
       - '*'
 jobs:
   build_push_deploy:
@@ -10,8 +10,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Maven build
-        run: ./mvnw package
+      - name: npm install
+        uses: actions/npm@master
+        with:
+          args: install
+      - name: npm build
+          uses: actions/npm@master
+          with:
+           args: build
       - name: Build & Push
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

@@ -10,14 +10,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: npm install
-        uses: actions/npm@master
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
-          args: install
-      - name: npm build
-        uses: actions/npm@master
-        with:
-          args: build
+          node-vesion: '12.x'
+      - run: npm install
+      - run: npm build
       - name: Build & Push
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

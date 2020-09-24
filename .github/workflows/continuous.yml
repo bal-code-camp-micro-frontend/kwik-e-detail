@@ -15,7 +15,7 @@ jobs:
         with:
           node-vesion: '12.x'
       - run: npm install
-      - run: npm build
+      - run: npm run build
       - name: Build & Push
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

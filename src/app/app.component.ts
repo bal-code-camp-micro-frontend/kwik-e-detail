@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common'
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { Location } from '@angular/common'
 })
 export class AppComponent {
   title = 'kwik-e-detail';
-  private text = ""
+  text = ""
   constructor(private location: Location) {
     this.location.onUrlChange((url,state) => this.render(url));
     console.log(this.location.path())
@@ -16,9 +17,12 @@ export class AppComponent {
   }
   render(url) {
     this.text = url;
+
   }
 
   onClickMe(){
     this.location.go("/product/13")
   }
+
+
 }

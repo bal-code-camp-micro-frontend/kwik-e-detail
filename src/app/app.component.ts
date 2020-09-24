@@ -34,5 +34,4 @@ export class AppComponent {
     this.location.go("/product/13")
   }
 
-
 }

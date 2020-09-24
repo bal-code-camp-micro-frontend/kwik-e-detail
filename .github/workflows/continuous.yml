@@ -15,9 +15,9 @@ jobs:
         with:
           args: install
       - name: npm build
-          uses: actions/npm@master
-          with:
-           args: build
+        uses: actions/npm@master
+        with:
+          args: build
       - name: Build & Push
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

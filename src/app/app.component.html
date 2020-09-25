@@ -6,7 +6,7 @@
     </a>
     <ul class="right hide-on-med-and-down">
       <li>
-        <c-shopping-cart id="{{json.id}}"></c-shopping-cart>
+        <c-shopping-cart id="{{productid}}"></c-shopping-cart>
       </li>
     </ul>
     <ul id="nav-mobile" class="sidenav">
@@ -21,11 +21,11 @@
   <br><br>
   <div class="row">
     <div class="col s12 m6">
-      <img src="{{json.id}}" class="img-responsive"/>
+      <img src="{{productid}}" class="img-responsive"/>
     </div>
     <div class="col s12 m6">
       <div class="row">
-        <h3><span>{{json.name}}</span></h3>
+        <h3><span>{{productname}}</span></h3>
       </div>
 
       <div class="row">
@@ -34,20 +34,20 @@
         </div>
         <div class="col s12 m6">
           <h5 class="cost">
-            <span>{{json.price}}</span>
+            <span>{{productprice}}</span>
             <small>CHF</small>
           </h5>
         </div>
       </div>
       <div class="space-ten"></div>
-      <p>Id: <span>{{json.id}}</span></p>
-      <p>Type: <span>{{json.type}}</span></p>
+      <p>Id: <span>{{productid}}</span></p>
+      <p>Type: <span>{{producttype}}</span></p>
       <p>Best product ever. Top a top</p>
       <div class="space-ten"></div>
-      <c-add-to-cart-button product-id="{{json.id}}" filled="true"></c-add-to-cart-button>
+      <c-add-to-cart-button product-id="{{productid}}" filled="true"></c-add-to-cart-button>
     </div>
   </div>
-  <l-recommendations product-id="{{json.id}}">
+  <l-recommendations product-id="{{productid}}">
     <!--#include virtual="/l/recommendations-skeleton" -->
   </l-recommendations>
 </div>
